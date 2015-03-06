@@ -1,0 +1,234 @@
+
+::selection{ background-color: #E13300; color: white; }
+::moz-selection{ background-color: #E13300; color: white; }
+::webkit-selection{ background-color: #E13300; color: white; }
+
+body {
+    background-color: #fff;
+    margin: 40px;
+    font: 13px/20px normal Helvetica, Arial, sans-serif;
+    color: #4F5155;
+}
+a {
+    color: #003399;
+    background-color: transparent;
+    font-weight: normal;
+}
+h1 {
+    color: #444;
+    background-color: transparent;
+    border-bottom: 1px solid #D0D0D0;
+    font-size: 19px;
+    font-weight: normal;
+    margin: 0 0 14px 0;
+    padding: 14px 15px 10px 15px;
+}
+code {
+    font-family: Consolas, Monaco, Courier New, Courier, monospace;
+    font-size: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #D0D0D0;
+    color: #002166;
+    display: block;
+    margin: 14px 0 14px 0;
+    padding: 12px 10px 12px 10px;
+}
+#body{
+    margin: 0 15px 0 15px;
+}
+p.footer{
+    text-align: right;
+    font-size: 11px;
+    border-top: 1px solid #D0D0D0;
+    line-height: 32px;
+    padding: 0 10px 0 10px;
+    margin: 20px 0 0 0;
+}
+div.container{
+    margin: 10px;
+    -webkit-box-shadow: 0 0 8px #D0D0D0;
+}
+
+
+/* ***** GENERAL ***** */
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.hide{
+    display: none;
+}
+
+/* ***** CONTAINER ***** */
+div.container{
+}
+
+/* ***** HEADER ***** */
+header{
+    background-color: aliceblue;
+    color: #003cb3;
+    height: 30px;
+}
+header > nav > ul{
+    list-style-type: none;
+    padding-left: 50px;
+}
+header > nav > ul > li{
+    line-height: 30px;
+    display: inline-block;
+    width: 10%;
+
+}
+header > nav > ul > li > a{
+    text-decoration: none;
+    text-transform: uppercase;
+}
+header > nav > ul > li > a:hover{
+    font-weight: bolder;
+}
+
+
+/* ***** WELCOME ***** */
+div.welcome{
+    width: 70%;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 20px;
+    border:1px lightgrey solid;
+    border-radius: 5px;
+    margin: 15px 0 50px;
+}
+
+
+/* ***** LOGIN ***** */
+div.login{
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    padding-top: 10px;
+}
+div.login input{
+    display: block;
+    vertical-align: top;
+}
+div.login h3{
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+/* ***** USER_LOGIN  / USER_INSCRIPTION ***** */
+div.user_login, div.user_inscription{
+    width: 50%;
+    text-align: center;
+    margin: 50px auto;
+    border: 2px lightgrey solid;
+    border-radius: 10px;
+}
+div.user_login input, div.user_inscription input {
+    margin: 5px 0;
+}
+div.user_login h3, div.user_inscription h3{
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+
+/* ****** PRODUCT ***** */
+div.product{
+    width: 70%;
+    padding-left: 20px;
+    border:1px lightgrey solid;
+    border-radius: 5px;
+}
+div.product p{
+    list-style-type: none;
+    margin: 10px 0;
+}
+div.product p:hover{
+    color: #003399;
+}
+div.product p a{
+    text-decoration: none;
+    color: dimgray;
+}
+div.product p a:hover{
+    color: #003399;
+}
+
+/* ***** PRODUCT div.list-categories ***** */
+div.list_categories{
+
+}
+/* ***** PRODUCT div.product_cat ***** */
+div.product_cat{
+
+}
+
+
+/* ***** PRODUCT div.icon_porduct ***** */
+div.icon_product{
+    border: 2px #808080 solid;
+    padding: 10px;
+    margin: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+div.icon_product img{
+    margin-left: 10px;
+    width: 80px;
+    height: 80px;
+}
+div.icon_product p{
+    margin: 0;
+    padding: 0;
+}
+
+/* ***** PRODUCT div.product_details ***** */
+div.product_details{
+    width: 50%;
+    text-align: center;
+    margin: 50px auto;
+    border: 2px lightgrey solid;
+    border-radius: 10px;
+}
+
+/* ***** ADD_PRODUCT **** */
+div.add_product{
+    width: 70%;
+    text-align: center;
+    margin: 50px auto;
+    border: 2px lightgrey solid;
+    border-radius: 10px;
+}
+div.add_product input{
+    margin: 5px 0;
+}
+div.add_product h3{
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+
+/* ***** CATEGORIES ***** */
+p.js-list-category{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
