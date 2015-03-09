@@ -15,10 +15,17 @@
     <nav>
         <ul>
             <li><a href="<?= site_url('/home') ?>">Accueil</a></li>
-            <li><a href="<?= site_url('/product/all_product') ?>">Produit</a></li>
-            <li><a href="<?= site_url('/product/search_product') ?>">Recherche</a></li>
+            <li class="product"><a href="<?= site_url('/product/all_product') ?>">Produit</a></li>
+            <li><a href="<?= site_url('/user/login') ?>">Connexion</a></li>
+            <li><a href="<?= site_url('/user/logout') ?>">Déconnexion</a></li>
+            <li><a href="<?= site_url('#') ?>">Panier</a></li>
+
+
         </ul>
     </nav>
 </header>
+
+<?php $this->load->view('menu') ?>
+
 
 <div class="container">

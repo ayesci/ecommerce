@@ -5,7 +5,6 @@ class Product extends CI_Controller
     public function index()
     {
         session_start();
-        $this->load->model("Model_Product", "", true);
         $categories = $this->Model_Product->get_categories();
 
         $this->load->view('head');
@@ -13,10 +12,17 @@ class Product extends CI_Controller
         $this->load->view('foot');
     }
 
+    public function product_menu()
+    {
+        session_start();
+        $this->load->view('head');
+        $this->load->view('menu', ['show_topCategories'=>$show_topCategories]);
+        $this->load->view('foot');
+    }
+
     public function all_product()
     {
         session_start();
-        $this->load->model("Model_Product", "", true);
         $products = $this->Model_Product->get_icon_product();
         $categories = $this->Model_Product->get_categories();
 
@@ -28,9 +34,6 @@ class Product extends CI_Controller
     public function products_by_categories($cat)
     {
         session_start();
-        $this->load->model("Model_Product", "", true);
-//        $res = $this->Model_Product->get_icon_product();
-//        $categories = $this->Model_Product->get_categories();
         $res = $this->Model_Product->products_by_categories($cat);
 
         $this->load->view('head');
@@ -41,8 +44,6 @@ class Product extends CI_Controller
     public function add_product()
     {
         session_start();
-
-        $this->load->model("Model_Product", "", true);
 
         if(array_key_exists('ref', $_POST))
         {
@@ -69,7 +70,6 @@ class Product extends CI_Controller
     public function product_details($id)
     {
         session_start();
-        $this->load->model("Model_Product", "", true);
         $details = $this->Model_Product->get_details_product($id);
 
         $this->load->view('head');
@@ -80,26 +80,48 @@ class Product extends CI_Controller
     public function search_product()
     {
         session_start();
-        $this->load->model("Model_Product", "", true);
 
+        // déclaration des variables
         $min = 0;
         $max = 500;
+        $name = '%';
+        $ref = '%';
+        $owner = "%";
 
+        // recherche par le prix
         if(array_key_exists('min_price', $_POST) && !empty($_POST['min_price']))
-        {
             $min = $_POST['min_price'];
-        }
         if(array_key_exists('max_price', $_POST) && !empty($_POST['max_price']))
-        {
             $max = $_POST['max_price'];
-        }
-        $res = $this->Model_Product->get_price($min, $max);
 
+        // recherche par le nom
+        if(array_key_exists('name', $_POST) && !empty($_POST['name']))
+            $name = '%'.$_POST['name'].'%';
+
+        // recherche par la référence
+        if(array_key_exists('ref', $_POST) && !empty($_POST['ref']))
+            $ref = '%'.$_POST['ref'].'%';
+
+        // recherche par proprio
+        if(array_key_exists('owner', $_POST) && !empty($_POST['owner']))
+            $owner = '%'.$_POST['owner'].'%';
+
+        // appel aux fonctions
+        $price = $this->Model_Product->get_search($name, $ref, $min, $max, $owner);
+        $owners = $this->Model_Product->get_owners();
+
+        // enlève les % juste avant l'affichage pour laisser l'option sélectionné.
+        $owner = str_replace('%', '', $owner);
+
+        // vues
         $this->load->view('head');
-        $this->load->view('search_product', ["min"=>$min, "max"=>$max]);
-        $this->load->view('product_list', ['products'=>$res]);
+        $this->load->view('search_product', ["name"=>$name, "ref"=>$ref, "min"=>$min, "max"=>$max, "owners"=>$owners, "current_owner"=>$owner]);
+        $this->load->view('product_list', ['products'=>$price]);
         $this->load->view('foot');
+
     }
+
+
 
 
 }

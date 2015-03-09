@@ -7,7 +7,6 @@ class User extends CI_Controller
         session_start();
         if(array_key_exists('name', $_POST))
         {
-            $this->load->model("Model_user", "", true);
             if($this->Model_user->users_exists($_POST['name']))
             {
                 if($this->Model_user->valid_user($_POST['name'], $_POST['password']))
@@ -32,7 +31,6 @@ class User extends CI_Controller
         $this->load->view('foot');
     }
 
-
     public function inscription()
     {
         session_start();
@@ -42,7 +40,6 @@ class User extends CI_Controller
 
         if(array_key_exists('name', $_POST))
         {
-            $this->load->model("Model_user", "", true);
             if($this->Model_user->users_exists($_POST['name']))
             {
                 $_SESSION['username'] = $_POST['name'];
@@ -62,7 +59,12 @@ class User extends CI_Controller
     {
         session_start();
         session_destroy();
-        redirect('/home');
+//        redirect('/user/logout');
+
+        $this->load->view('head');
+        $this->load->view('logout_page');
+        $this->load->view('foot');
+
     }
 
 

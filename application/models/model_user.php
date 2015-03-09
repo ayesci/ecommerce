@@ -49,7 +49,6 @@ class Model_user extends CI_Model
         return false;
     }
 
-
     public function valid_user($name, $password)
     {
         $sql = "SELECT *
@@ -69,4 +68,6 @@ class Model_user extends CI_Model
             return false;
         }
     }
+
+
 }

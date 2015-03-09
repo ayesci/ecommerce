@@ -5,15 +5,10 @@ class Home extends CI_Controller {
     public function index()
     {
         session_start();
-        $this->load->model("Model_Product", "", true);
-        $categories = $this->Model_Product->get_categories();
-
         $this->load->view('head');
         $this->load->view('home_page');
-        $this->load->view('list_categories', ["categories"=>$categories]);
         $this->load->view('foot');
     }
-
 
     public function category($cat)
     {
@@ -27,7 +22,6 @@ class Home extends CI_Controller {
     public function show_details()
     {
         session_start();
-        $this->load->model("Model_Product", "", true);
         $this->load->view('head');
         $this->load->view('product_details', ["categories"=>['category'=>$cat]]);
         $this->load->view('foot');
