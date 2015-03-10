@@ -1,6 +1,6 @@
 <?php
 
-class Model_user extends CI_Model
+class Model_User extends CI_Model
 {
     public function get_users()
     {
@@ -61,6 +61,8 @@ class Model_user extends CI_Model
 
         if($password == $res['password'])
         {
+            $_SESSION['username'] = $res['name'];
+            $_SESSION['id'] = $res['id'];
             return true;
         }
         else

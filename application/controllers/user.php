@@ -7,11 +7,10 @@ class User extends CI_Controller
         session_start();
         if(array_key_exists('name', $_POST))
         {
-            if($this->Model_user->users_exists($_POST['name']))
+            if($this->Model_User->users_exists($_POST['name']))
             {
-                if($this->Model_user->valid_user($_POST['name'], $_POST['password']))
+                if($this->Model_User->valid_user($_POST['name'], $_POST['password']))
                 {
-                    $_SESSION['username'] = $_POST['name'];
                     redirect('/home');
                 }
                 else

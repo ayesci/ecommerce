@@ -67,16 +67,6 @@ class Product extends CI_Controller
         $this->load->view('foot');
     }
 
-    public function product_details($id)
-    {
-        session_start();
-        $details = $this->Model_Product->get_details_product($id);
-
-        $this->load->view('head');
-        $this->load->view('product_details', ["products"=>$details]);
-        $this->load->view('foot');
-    }
-
     public function search_product()
     {
         session_start();
@@ -120,6 +110,45 @@ class Product extends CI_Controller
         $this->load->view('foot');
 
     }
+
+    public function product_details($id)
+    {
+        session_start();
+        $details = $this->Model_Product->get_details_product($id);
+        $carousel = $this->Model_Product->get_pictures_product($id);
+        $avis = $this->Model_Product->get_comm($id);
+
+        if(sizeof($avis)>0)
+         {
+             $moy = $this->Model_Product->get_moy_stars($id);
+         }
+        else
+        {
+            $moy =0;
+        }
+
+        $this->load->view('head');
+        $this->load->view('product_details', ['products'=>$details, 'carousel'=>$carousel, 'moy'=>$moy]);
+        $this->load->view('all_comm', ['avis'=>$avis]);
+        $this->load->view('foot');
+    }
+
+    public function avis($id)
+    {
+        session_start();
+        if(array_key_exists('title', $_POST))
+        {
+            $avis = $this->Model_Product->add_avis($_POST['title'], $_POST['note'], $_POST['content'], $id);
+            redirect('/product/product_details/'.$id);
+        }
+
+        $details = $this->Model_Product->get_details_product($id);
+
+        $this->load->view('head');
+        $this->load->view('add_avis', ['products'=>$details]);
+        $this->load->view('foot');
+    }
+
 
 
 

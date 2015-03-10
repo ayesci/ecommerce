@@ -263,48 +263,146 @@ aside.search_product > form > fieldset > input#submit{
 
 /* ***** PRODUCT div.product_details ***** */
 div.product_details{
-    width:80%;
-    height: 50%;
-    margin: 50px auto;
+    width:850px;
+    margin: 30px auto;
     border: 2px lightgrey solid;
     border-radius: 10px;
     position: relative;
+    padding: 3% 0 0 3%;
 }
-div.product_details > aside{
+div.product_details > div.carousel{
     display: inline-block;
     vertical-align: top;
-    width: 15%;
-    min-height: 100%;
-    background-color: beige;
-    outline: 1px lightgrey solid;
-    margin-right: 4%;
+    width:50px;
 }
-div.product_details > aside > a {
-    text-decoration: none;
+div.product_details > div.carousel > figure > div.img_carousel > img{
+    margin: 10px;
+    width: 40px;
+    height: 40px;
 }
 
-div.product_details > figure{
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
-    height: 100%;
-    outline: 1px lightgrey solid;
-    margin: 0 auto;
-
-}
-div.product_details > figure > img{
-    width: 100%;
-}
 div.product_details > div.details{
     display: inline-block;
     vertical-align: top;
+    width: 700px;
+    margin-left: 3%;
+}
+
+div.product_details > div.details > div.img_icon{
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    height: 300px;
+
+}
+div.product_details > div.details > div.img_icon > img{
+    width: 300px;
+    height: 300px;
+}
+
+div.product_details > div.details > div.charateristic{
+    display: inline-block;
+    vertical-align: top;
     width: 30%;
-    height: 100%;
-    outline: 1px lightgray solid;
 }
-div.product_details > div.description{
-    display: block;
+div.product_details > div.details > div.charateristic > div.db{
+    margin-bottom: 10%;
 }
+div.product_details > div.details > div.charateristic > div.db > p.name{
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 25%;
+}
+div.product_details > div.details > div.charateristic > div.db > p.price{
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 15%;
+}
+div.product_details > div.details > div.charateristic > div.avis > button{
+    background-color: cornflowerblue;
+    padding: 1%;
+    border: 3px cornflowerblue solid;
+    cursor: pointer;
+}
+div.product_details > div.details > div.charateristic > div.avis > button > a{
+    text-decoration: none;
+    color: #000000;
+}
+
+div.product_details > div.details > div.panier{
+    display: inline-block;
+    vertical-align: top;
+    width: 11%;
+    padding: 1%;
+}
+div.product_details > div.details > div.panier > button > a{
+    text-decoration: none;
+    color: #000000;
+}
+
+
+
+div.product_details > div.details > div.description{
+    display: inline-block;
+    vertical-align: top;
+    width: 80%;
+}
+
+div.all_comm{
+    width:850px;
+    margin: 30px auto;
+    border: 2px lightgrey solid;
+    border-radius: 10px;
+    position: relative;
+    padding: 3%;
+    /*display: none;*/
+}
+div.all_comm > a > button{
+    position: absolute;
+    top: 5px;
+    left: 85%;
+    text-decoration: none;
+    color: #000000;
+}
+div.all_comm > div.comm > p{
+    margin: 0;
+    padding: 0;
+}
+div.all_comm > div.comm > p:first-child{
+    font-weight: bolder;
+}
+div.all_comm > div.comm > p> i{
+    margin: 0 3px;
+}
+div.all_comm > div.comm > hr{
+    margin: 15px;
+}
+
+/* ***** PRODUCT div.add_avis ***** */
+div.add_avis{
+    width: 50%;
+    text-align: center;
+    margin: 50px auto;
+    border: 2px lightgrey solid;
+    border-radius: 10px;
+}
+div.add_avis > div.img_icon{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20%;
+}
+div.add_avis > form{
+    display: inline-block;
+    vertical-align: top;
+}
+div.add_avis input, textarea{
+    width: 85%;
+}
+div.add_avis h3{
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
 
 /* ***** PRODUCT div.product_cat ***** */
 div.product_cat{

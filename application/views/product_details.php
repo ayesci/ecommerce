@@ -2,35 +2,56 @@
 
 <div class="product_details">
 
-    <div id="image-carousel">
+    <div class="carousel">
         <figure>
-            <?=  $this->load->Model_Product->get_picture_product($product['id']) ?>
-            <?php for($i=0; $i<sizeof($img); $i++) : ?>
-            <?php   ?>
-
-            <img src="<?= site_url('/product/product_details/'.$product['id'])?> "/>
-
-            <a>bla bla bla</a>
-
+            <?php for($i=0; $i<sizeof($carousel); $i++) : ?>
+                <div class="img_carousel">
+                <?php if(!empty($carousel[$i]['parent'])): ?>
+                        <img src="<?= base_url($carousel[$i]['picture']) ?>"/>
+                <?php endif ?>
+                </div>
+            <?php endfor  ?>
         </figure>
     </div>
 
-    <figure>
-        <img src="<?= base_url().$products['picture'] ?>"/>
-    </figure>
-
     <div class="details">
-        <p>Nom : <?= $products['name_product'] ?></p>
-        <p>Ref : <?= $products['ref'] ?></p>
-        <p>Categorie : <?= $products['category'] ?> €</p>
-        <p>Prix : <?= $products['price'] ?> €</p>
-        <p>Possesseur : <?= $products['owner'] ?></p>
-    </div>
 
+        <div class="img_icon">
+            <img src="<?= base_url().$products['picture'] ?>"/>
+        </div>
 
-    <div class="description">
-        <p>Description : <?= $products['description'] ?> </p>
+        <div class="charateristic">
+
+            <div class="db">
+            <p class="name"><?= $products['name_product'] ?></p>
+            <p class="price"><?= $products['price'] ?> €</p>
+            <p>Référence : <?= $products['ref'] ?></p>
+            <p>Catégorie produit : <?= $products['category'] ?></p>
+            <p>Possesseur : <?= $products['owner'] ?></p>
+        </div>
+
+            <div class="avis">
+            <?php for($j=0; $j<$moy; $j++) : ?>
+                <p class="glyphicon glyphicon-star" style="color:goldenrod"></p>
+            <?php endfor ?>
+            <?php for(; $j<5; $j++) : ?>
+                <p class="glyphicon glyphicon-star-empty"></p>
+            <?php endfor ?>
+             <button>Voir les avis</button>
+        </div>
+        </div>
+
+        <div class="panier">
+            <a href="<? site_url('/panier')?>"><button><i class="fa fa-cart-arrow-down" style="font-size:20px"></i>Panier </button></a>
+        </div>
+
+        <div class="description">
+            <p>Description : <em><?= $products['description']?></em></p>
+        </div>
+
     </div>
 
 </div>
+
+
 
