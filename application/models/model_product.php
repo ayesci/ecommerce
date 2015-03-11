@@ -179,7 +179,6 @@ Class Model_Product extends CI_Model
 
     public function add_avis($title, $note, $content, $id)
     {
-
         $sql = "INSERT INTO comm(title, note, author, content, parent)
                 VALUES (?, ?, ?, ?, ?)
                 ";

@@ -150,10 +150,17 @@ div.good-bye{
 div.js-nav-bar{
     display: none;
     background-color: beige;
-    padding : 10px 0 30px 100px;
+    padding : 0 0 5px 100px;
     position:absolute;
     width: 93%;
     z-index: 5;
+    margin: 0;
+}
+div.js-parent h3{
+    font-size: 1.3rem;
+}
+div.js-parent h3:hover{
+    color: #000000;
 }
 div.js-nav-bar a {
     text-decoration: none;
@@ -166,16 +173,14 @@ div.js-nav-bar a:hover {
 div.js-parent{
     display: inline-block;
     vertical-align: top;
-    margin: 0 50px;
     color: slategrey;
     margin-right: 100px;
 }
-div.js-parent h3:hover{
-    color: #000000;
-}
+
 div.plus{
     display: inline-block;
     vertical-align: top;
+    margin-top: 18px;
 }
 div.plus > ul > li{
     list-style-type: none;
@@ -340,8 +345,6 @@ div.product_details > div.details > div.panier > button > a{
     color: #000000;
 }
 
-
-
 div.product_details > div.details > div.description{
     display: inline-block;
     vertical-align: top;
@@ -355,7 +358,7 @@ div.all_comm{
     border-radius: 10px;
     position: relative;
     padding: 3%;
-    /*display: none;*/
+    display: none;
 }
 div.all_comm > a > button{
     position: absolute;
@@ -436,8 +439,70 @@ p.js-list-category{
 
 
 
+/* ***** PANIER div.panier_list ***** */
+div.all_products_panier{
+    margin-top: 30px;
+}
 
+div.panier_list{
+    background-color: aliceblue;
+    margin-bottom: 20px;
+    position: relative;
+}
+div.panier_list > img{
+    display: inline-block;
+    vertical-align: top;
+    width: 50px;
+    height: 50px;
+    margin: 3px;
+}
+div.panier_list > p{
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    line-height: 50px;
+    text-align: center;
+}
+div.panier_list > form{
+    display: inline-block;
+    vertical-align: top;
+}
+div.panier_list > form input{
+    width: 50px;
+    font-weight: lighter;
+    border: none;
+    background: white;
+    text-align: center;
+}
+div.panier_list > form label{
+    font-weight: lighter;
+    line-height: 50px;
+}
+div.panier_list > p.priceHT{
+    display: inline-block;
+    vertical-align: top;
+    line-height: 50px;
+}
+div.panier_list > a {
+    text-decoration: none;
+}
+div.panier_list > a > i {
+    font-size: 3rem;
+    line-height: 50px;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+div.panier_list > a > i:hover{
+    color: red;
+}
 
+div.price{
+    float: right;
+    background-color: aliceblue;
+    padding: 10px 100px 10px 0;
+    font-weight: bolder;
+}
 
 
 

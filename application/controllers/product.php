@@ -128,7 +128,7 @@ class Product extends CI_Controller
         }
 
         $this->load->view('head');
-        $this->load->view('product_details', ['products'=>$details, 'carousel'=>$carousel, 'moy'=>$moy]);
+        $this->load->view('product_details', ['products'=>$details, 'carousel'=>$carousel, 'moy'=>$moy, 'id'=>$id]);
         $this->load->view('all_comm', ['avis'=>$avis]);
         $this->load->view('foot');
     }
@@ -148,9 +148,6 @@ class Product extends CI_Controller
         $this->load->view('add_avis', ['products'=>$details]);
         $this->load->view('foot');
     }
-
-
-
 
 
 }

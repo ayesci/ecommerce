@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <script src="<?=base_url()?>asset/js/script.js"></script>
     <link href="<?=base_url()?>asset/css/stylesheet.css" rel="stylesheet" type="text/css">
@@ -22,9 +22,7 @@
             <li class="product"><a href="<?= site_url('/product/all_product') ?>">Produit</a></li>
             <li><a href="<?= site_url('/user/login') ?>">Connexion</a></li>
             <li><a href="<?= site_url('/user/logout') ?>">Déconnexion</a></li>
-            <li><a href="<?= site_url('#') ?>">Panier</a></li>
-
-
+            <li><a href="<?= site_url('/panier/list_product/')?>">Panier</a></li>
         </ul>
     </nav>
 </header>

@@ -34,6 +34,12 @@ function showAvis()
     $('div.all_comm').fadeToggle(250);
 }
 
+function changePrice()
+{
+    console.log(this);
+    $(this).submit();
+}
+
 $(function ()
 {
     //$('.js-category').on('click', showCategory);
@@ -42,6 +48,7 @@ $(function ()
     $('div.js-nav-bar').on('mouseleave', hideMenu);
     $('div.img_carousel img').on('click', replaceSource);
     $('div.avis').on('click', showAvis);
+    $('form.quantity').on('change', changePrice);
 });
 
 
