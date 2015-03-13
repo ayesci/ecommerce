@@ -5,6 +5,7 @@ class Home extends CI_Controller {
     public function index()
     {
         session_start();
+
         $this->load->view('head');
         $this->load->view('home_page');
         $this->load->view('foot');

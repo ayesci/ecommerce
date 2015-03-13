@@ -5,6 +5,7 @@ class User extends CI_Controller
     public function login()
     {
         session_start();
+
         if(array_key_exists('name', $_POST))
         {
             if($this->Model_User->users_exists($_POST['name']))
@@ -33,13 +34,11 @@ class User extends CI_Controller
     public function inscription()
     {
         session_start();
-        $this->load->view('head');
-        $this->load->view('user_inscription');
-        $this->load->view('foot');
+        $name = "";
 
         if(array_key_exists('name', $_POST))
         {
-            if($this->Model_user->users_exists($_POST['name']))
+            if($name = $this->Model_User->users_exists($_POST['name']))
             {
                 $_SESSION['username'] = $_POST['name'];
                 $_SESSION['message'] = "Vous êtes déjà inscrit.";
@@ -48,15 +47,21 @@ class User extends CI_Controller
             else
             {
                 $_SESSION['username'] = $_POST['name'];
-                $this->Model_user->create($_POST['name'], $_POST['password'], $_POST['email']);
+                $this->Model_User->create($_POST['name'], $_POST['password'], $_POST['email']);
                 redirect('/home');
             }
         }
+
+        $this->load->view('head');
+        $this->load->view('user_inscription', ['name'=>$name]);
+        $this->load->view('foot');
     }
 
     public function logout()
     {
         session_start();
+        $_SESSION = [];
+
         session_destroy();
 //        redirect('/user/logout');
 
@@ -65,6 +70,5 @@ class User extends CI_Controller
         $this->load->view('foot');
 
     }
-
 
 }

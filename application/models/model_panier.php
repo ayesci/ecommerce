@@ -3,13 +3,15 @@
 
 Class Model_Panier extends CI_Model
 {
-    public function list_articles_in_panier()
+    public function list_articles_in_panier($user_id)
     {
         $sql = "SELECT products.id, products.ref, products.name_product, products.picture, products.price, panier.quantity, panier.id as id_panier
                 FROM panier
                 JOIN products ON panier.product_id = products.id
+                WHERE user_id = ?
                 ";
-        $query = $this->db->query($sql);
+        $data = [$user_id];
+        $query = $this->db->query($sql, $data);
 
         $res = [];
         foreach($query->result_array() as $row)
@@ -37,7 +39,6 @@ Class Model_Panier extends CI_Model
                 ";
         $data = [$quantity, $user_id, $article_id];
         $this->db->query($sql, $data);
-
 
     }
 
@@ -71,4 +72,17 @@ Class Model_Panier extends CI_Model
             return 0;
         }
     }
+
+    public function nbr_article_in_panier($user_id)
+    {
+        $sql = "SELECT count(id) as nbr
+                FROM panier
+                WHERE user_id = ?
+                ";
+        $data = [$user_id];
+        $query = $this->db->query($sql, $data);
+        $nbr = $query->row_array();
+        return $nbr['nbr'];
+    }
+
 }

@@ -6,10 +6,20 @@ class Panier extends CI_Controller
     public function list_product()
     {
         session_start();
-        $articles = $this->Model_Panier->list_articles_in_panier();
+        $articles = "";
+        $message = "";
+
+        if(array_key_exists('id', $_SESSION))
+        {
+            $articles = $this->Model_Panier->list_articles_in_panier($_SESSION['id']);
+        }
+        else
+        {
+            $message = "Merci de vous connecter avant de commander un produit";
+        }
 
         $this->load->view('head');
-        $this->load->view('panier_list', ["articles"=>$articles]);
+        $this->load->view('panier_list', ["articles"=>$articles, "message"=>$message]);
         $this->load->view('foot');
     }
 
@@ -17,14 +27,8 @@ class Panier extends CI_Controller
     {
         session_start();
 
-        // si l'id produit existe déjà dans le panier -->
-        // alors tu incrémentes de 1 la quantié -->
-        // sinon, tu aujoutes le produit à la liste -->
+        $quantity = $this->Model_Panier->get_article_in_panier($id, $_SESSION['id']);
 
-
-        $quantity = ($this->Model_Panier->get_article_in_panier($id, $_SESSION['id']));
-
-//        var_dump($quantity);
         if($quantity > 0)
         {
             $increase_quantity = $this->Model_Panier->change_quantity($quantity+1, $_SESSION['id'], $id);
@@ -54,6 +58,32 @@ class Panier extends CI_Controller
         redirect('panier/list_product');
 
     }
+
+    public function article_exist($id)
+    {
+        session_start();
+
+        if(array_key_exists('id', $_SESSION))
+        {
+            $quantity = ($this->Model_Panier->get_article_in_panier($id, $_SESSION['id']));
+
+            if($quantity > 0)
+            {
+                echo "true";
+            }
+            else
+            {
+                echo "false";
+            }
+        }
+        else
+        {
+            echo "true";
+        }
+
+
+    }
+
 
 
 }

@@ -41,7 +41,25 @@
         </div>
 
         <div class="panier">
-            <a href="<?= site_url('/panier/add_articles/'.$id)?>"><button><i class="fa fa-cart-arrow-down" style="font-size:20px"></i>Panier</button></a>
+
+            <a class="js-add-panier"  data-id="<?= $id ?>"><button><i class="fa fa-cart-arrow-down" style="font-size:20px"></i>Panier</button></a>
+
+            <div class="js-show-message">
+
+                <?php if(array_key_exists('id', $_SESSION)) : ?>
+                    <p>Article existant dans le panier.<br/>Voules-vous ?</p>
+                    <a><button class="js-hide-message">Annuler</button></a>
+                    <a href="<?= site_url('/panier/add_articles/'.$id)?>" class="js-redirect"><button>Ajouter</button></a>
+
+                <?php else : ?>
+                    <p> Merci de vous connecter pour utiliser le panier </p>
+                    <a><button class="js-hide-message">Annuler</button></a>
+                    <a href="<?= site_url('/user/login/'.$id)?>" class="js-redirect"><button>Connexion</button></a>
+
+
+                <?php endif ?>
+            </div>
+
         </div>
 
         <div class="description">

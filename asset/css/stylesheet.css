@@ -296,8 +296,7 @@ div.product_details > div.details{
 div.product_details > div.details > div.img_icon{
     display: inline-block;
     vertical-align: top;
-    width: 400px;
-    height: 300px;
+    width: 50%
 
 }
 div.product_details > div.details > div.img_icon > img{
@@ -308,7 +307,7 @@ div.product_details > div.details > div.img_icon > img{
 div.product_details > div.details > div.charateristic{
     display: inline-block;
     vertical-align: top;
-    width: 30%;
+    width: 25%;
 }
 div.product_details > div.details > div.charateristic > div.db{
     margin-bottom: 10%;
@@ -337,12 +336,44 @@ div.product_details > div.details > div.charateristic > div.avis > button > a{
 div.product_details > div.details > div.panier{
     display: inline-block;
     vertical-align: top;
-    width: 11%;
-    padding: 1%;
+    width: 23%;
 }
-div.product_details > div.details > div.panier > button > a{
+div.product_details > div.details > div.panier > a.js-add-panier{
     text-decoration: none;
     color: #000000;
+}
+div.product_details > div.details > div.panier > div.js-show-message{
+    width: 150%;
+    display: none;
+}
+div.product_details > div.details > div.panier > div.js-show-message > p{
+    color: darkred;
+    font-size: 1rem;
+    text-align: justify;
+    margin: 0; padding: 0;
+}
+div.product_details > div.details > div.panier > div.js-show-message > a > button{
+    text-decoration: none;
+    border: none;
+    color: #808080;
+    background-color: lightgrey;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px;
+    padding: 1%;
+}
+
+span.nbr{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+div.price{
+    float: right;
+    background-color: aliceblue;
+    padding: 10px 100px 10px 0;
+    font-weight: bolder;
 }
 
 div.product_details > div.details > div.description{
@@ -497,12 +528,48 @@ div.panier_list > a > i:hover{
     color: red;
 }
 
-div.price{
-    float: right;
-    background-color: aliceblue;
-    padding: 10px 100px 10px 0;
-    font-weight: bolder;
+
+/* ***** COMMANDE ***** */
+
+div.delivery-wrapper{
+    width: 50%;
+    margin: 40px auto;
 }
+div.delivery-wrapper > div.js-co-delivery > form.address{
+    margin: 30px;
+}
+
+
+div.livraison > p{
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+}
+div.facturation > p{
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+}
+
+div.panier_list > p{
+    width: 50px;
+    padding: 0;margin: 0;
+}
+
+
+div.expedition{
+    width: 50%;
+    text-align: center;
+    border: 2px lightgrey solid;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 100px auto;
+}
+
+
+
+
+
 
 
 

@@ -36,8 +36,43 @@ function showAvis()
 
 function changePrice()
 {
-    console.log(this);
+    //console.log(this);
     $(this).submit();
+}
+
+function article_exists()
+{
+    var id = this.dataset.id;
+    var config = {
+        url : base_url+"index.php/panier/article_exist/"+id
+    };
+    $.ajax(config).done(showMessage);
+
+    console.log(config);
+}
+
+function showMessage(data)
+{
+    if(data == "true")
+    {
+        $('div.js-show-message').fadeIn(150);
+    }
+    else
+    {
+        var redirect_url = $('.js-redirect').attr('href');
+        window.location =redirect_url ;
+
+    }
+}
+
+function hideMessage()
+{
+    $('div.js-show-message').fadeOut(100);
+}
+
+function onClickCheckbox()
+{
+    $('.js-facturation').fadeToggle(100);
 }
 
 $(function ()
@@ -49,6 +84,10 @@ $(function ()
     $('div.img_carousel img').on('click', replaceSource);
     $('div.avis').on('click', showAvis);
     $('form.quantity').on('change', changePrice);
+    $('a.js-add-panier').on('click', article_exists);
+    $('button.js-hide-message').on('click', hideMessage);
+    $('input.address').on('change', onClickCheckbox);
+
 });
 
 

@@ -59,7 +59,7 @@ class Model_User extends CI_Model
         $query = $this->db->query($sql, $data);
         $res = $query->row_array();
 
-        if($password == $res['password'])
+        if(password_verify($password, $res['password']))
         {
             $_SESSION['username'] = $res['name'];
             $_SESSION['id'] = $res['id'];
