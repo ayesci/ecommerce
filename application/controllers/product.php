@@ -7,7 +7,10 @@ class Product extends CI_Controller
         session_start();
         $categories = $this->Model_Product->get_categories();
 
+        $links = ['acceuil'=>"http://localhost/Projet/e-commerce/index.php/"];
+
         $this->load->view('head');
+        $this->load->view('block_top', ['links'=>$links]);
         $this->load->view('list_categories', ["categories"=>$categories]);
         $this->load->view('foot');
     }
@@ -26,7 +29,11 @@ class Product extends CI_Controller
         $products = $this->Model_Product->get_icon_product();
         $categories = $this->Model_Product->get_categories();
 
+        $links = [  'acceuil'=>"http://localhost/Projet/e-commerce/index.php/",
+                    'produit'=>"http://localhost/Projet/e-commerce/index.php/product/all_product"];
+
         $this->load->view('head');
+        $this->load->view('block_top', ["links"=>$links]);
         $this->load->view('all_products', ["products"=>$products, "categories"=>$categories]);
         $this->load->view('foot');
     }
@@ -36,7 +43,12 @@ class Product extends CI_Controller
         session_start();
         $res = $this->Model_Product->products_by_categories($cat);
 
+        $links = [  'acceuil'=>"http://localhost/Projet/e-commerce/index.php/",
+                    'produit'=>"http://localhost/Projet/e-commerce/index.php/product/all_product"];
+
+
         $this->load->view('head');
+        $this->load->view('block_top', ["links"=>$links]);
         $this->load->view('product_list', ["products"=>$res]);
         $this->load->view('foot');
     }
@@ -44,6 +56,10 @@ class Product extends CI_Controller
     public function add_product()
     {
         session_start();
+
+        $links = [  'acceuil'=>"http://localhost/Projet/e-commerce/index.php/",
+                    'ajouter un produit'=>"http://localhost/Projet/e-commerce/index.php/product/add_product"];
+
 
         if(array_key_exists('ref', $_POST))
         {
@@ -63,6 +79,7 @@ class Product extends CI_Controller
         }
 
         $this->load->view('head');
+        $this->load->view('block_top', ["links"=>$links]);
         $this->load->view('add_product');
         $this->load->view('foot');
     }
@@ -70,6 +87,10 @@ class Product extends CI_Controller
     public function search_product()
     {
         session_start();
+
+        $links = [  'acceuil'=>"http://localhost/Projet/e-commerce/index.php/",
+                    'chercher un produit'=>"http://localhost/Projet/e-commerce/index.php/product/search_product"];
+
 
         // déclaration des variables
         $min = 0;
@@ -105,6 +126,7 @@ class Product extends CI_Controller
 
         // vues
         $this->load->view('head');
+        $this->load->view('block_top', ["links"=>$links]);
         $this->load->view('search_product', ["name"=>$name, "ref"=>$ref, "min"=>$min, "max"=>$max, "owners"=>$owners, "current_owner"=>$owner]);
         $this->load->view('product_list', ['products'=>$price]);
         $this->load->view('foot');
@@ -118,6 +140,12 @@ class Product extends CI_Controller
         $carousel = $this->Model_Product->get_pictures_product($id);
         $avis = $this->Model_Product->get_comm($id);
 
+        $links = [  'acceuil'=>"http://localhost/Projet/e-commerce/index.php/",
+                    'produit'=>"http://localhost/Projet/e-commerce/index.php/product/all_product",
+                    'details'=>"#"
+        ];
+
+
         if(sizeof($avis)>0)
          {
              $moy = $this->Model_Product->get_moy_stars($id);
@@ -128,6 +156,7 @@ class Product extends CI_Controller
         }
 
         $this->load->view('head');
+        $this->load->view('block_top', ["links"=>$links]);
         $this->load->view('product_details', ['products'=>$details, 'carousel'=>$carousel, 'moy'=>$moy, 'id'=>$id]);
         $this->load->view('all_comm', ['avis'=>$avis]);
         $this->load->view('foot');
@@ -148,6 +177,7 @@ class Product extends CI_Controller
         $this->load->view('add_avis', ['products'=>$details]);
         $this->load->view('foot');
     }
+
 
 
 }

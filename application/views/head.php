@@ -16,37 +16,70 @@
 </head>
 <body>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="<?= site_url('/home') ?>">Accueil</a></li>
+<div id="container" class="pt_storefront hp adidas_site">
+    <div class="header-sticky-wrapper top-fixed" data-sticky="true" data-component="common/header/HeaderRedesign">
 
-            <li class="product"><a href="<?= site_url('/product/all_product') ?>">Produit</a></li>
+<div id="header" class="header-redesign">
+    <div class="wrapper clearfix">
+        <div class="column">
 
-            <li><a href="<?= site_url('/user/login') ?>"><i class="fa fa-user fa-2x"></i></a>.
-                <?php if(array_key_exists('username', $_SESSION)) : ?>
-                    <span class="name"><?= $_SESSION['username'] ?></span>
-                <?php endif ?>
-            </li>
+            <div class="column topcat-nav">
+                <div class="flyout navigation-accueil">
+                    <div class="nav-button">
+                        <a href="<?= site_url('/home') ?>" title="Accueil" alt="Accueil" >Accueil</a>
+                    </div>
+                </div>
 
-            <li><a href="<?= site_url('/user/logout') ?>"><i class="fa fa-user-times fa-2x"></i>
-            <li>
-                <a href="<?= site_url('/panier/list_product/')?>"><i class="fa fa-cart-arrow-down fa-2x"></i></a>
-                <?php if(array_key_exists('id', $_SESSION)) : ?>
-                    <?php $nbr = $this->Model_Panier->nbr_article_in_panier($_SESSION['id']); ?>
-                    <?php if($nbr <=0 ) : ?>
-                    <?= $nbr = "" ?>
-                    <?php else : ?>
-                    <span class="nbr"><?= $nbr ?></span>
-                    <?php endif ?>
-                <?php endif ?>
-            </li>
-        </ul>
-    </nav>
-</header>
+                <div class="flyout navigation-product">
+                    <div class="nav-button">
+                        <a href="<?= site_url('/product/all_product') ?>">Produit</a>
+                    </div>
+                </div>
+
+                <div class="flyout navigation-login">
+                    <div class="nav-button">
+                        <a href="<?= site_url('/user/login') ?>"><i class="fa fa-user fa-2x"></i></a>
+                        <?php if(array_key_exists('username', $_SESSION)) : ?>
+                            <span class="name"><?= $_SESSION['username'] ?></span>
+                        <?php endif ?>
+                    </div>
+                </div>
+
+                <div class="flyout navigation-logout">
+                    <div class="nav-button">
+                        <a href="<?= site_url('/user/logout') ?>"><i class="fa fa-user-times fa-2x"></i></a>
+                    </div>
+                </div>
+
+                <div class="flyout navigation-cart">
+                    <div class="nav-button">
+                        <a href="<?= site_url('/panier/list_product/')?>"><i class="fa fa-cart-arrow-down fa-2x"></i></a>
+                        <?php if(array_key_exists('id', $_SESSION)) : ?>
+                            <?php $nbr = $this->Model_Panier->nbr_article_in_panier($_SESSION['id']); ?>
+                            <?php if($nbr <=0 ) : ?>
+                                <?= $nbr = "" ?>
+                            <?php else : ?>
+                                <span class="nbr"><?= $nbr ?></span>
+                            <?php endif ?>
+                        <?php endif ?>
+                    </div>
+                </div>
+
+                <div class="flyout navigation-search">
+                    <div class="nav-button">
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <?php $this->load->view('menu') ?>
 
+<div id="context_holder">
+    <div id="content" data-component="productlist/Filters">
 
-<div class="container">
 

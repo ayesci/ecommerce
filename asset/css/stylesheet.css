@@ -366,13 +366,14 @@ div.product_details > div.details > div.panier > div.js-show-message > a > butto
 span.nbr{
     text-decoration: none;
     text-transform: uppercase;
-    color: #000000;
+    color: #ffffff;
 }
 
 div.price{
-    float: right;
+    /*float: right;*/
+    text-align: right;
     background-color: aliceblue;
-    padding: 10px 100px 10px 0;
+    padding: 10px 30px 10px 0;
     font-weight: bolder;
 }
 
@@ -469,7 +470,6 @@ p.js-list-category{
 }
 
 
-
 /* ***** PANIER div.panier_list ***** */
 div.all_products_panier{
     margin-top: 30px;
@@ -498,12 +498,9 @@ div.panier_list > form{
     display: inline-block;
     vertical-align: top;
 }
-div.panier_list > form input{
-    width: 50px;
-    font-weight: lighter;
+div.panier_list > form input#quantity{
+    width: 80px;
     border: none;
-    background: white;
-    text-align: center;
 }
 div.panier_list > form label{
     font-weight: lighter;
@@ -530,7 +527,6 @@ div.panier_list > a > i:hover{
 
 
 /* ***** COMMANDE ***** */
-
 div.delivery-wrapper{
     width: 50%;
     margin: 40px auto;
@@ -539,24 +535,34 @@ div.delivery-wrapper > div.js-co-delivery > form.address{
     margin: 30px;
 }
 
-
+/* ***** livraison ***** */
 div.livraison > p{
     display: inline-block;
     vertical-align: top;
     margin: 10px;
 }
-div.facturation > p{
-    display: inline-block;
-    vertical-align: top;
-    margin: 10px;
-}
-
 div.panier_list > p{
     width: 50px;
     padding: 0;margin: 0;
 }
 
 
+/* ***** facturation ***** */
+div.facturation > p{
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+}
+
+div.suite{
+    text-align: right;
+    background-color: aliceblue;
+    padding: 10px 30px 10px 0;
+    font-weight: bolder;
+}
+
+
+/* ***** expedition ***** */
 div.expedition{
     width: 50%;
     text-align: center;

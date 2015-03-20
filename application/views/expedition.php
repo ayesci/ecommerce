@@ -1,4 +1,20 @@
 
+<div class="co-checkoutprogressindicator">
+
+    <div class="wrapper rbk_wrapper">
+        <ul>
+            <li class="inactive step-1">
+                <span>1</span>Information de livraison
+            </li>
+            <li class="inactive step-2">
+                <span>2</span>Récpitulatif de la facturation
+            </li>
+            <li class="active step-3">
+                <span>3</span>Expédition du produit
+            </li>
+        </ul>
+    </div>
+</div>
 
 <div class="expedition">
     <h3>Merci pour vos achats <?= $_SESSION['username'] ?> !</h3>

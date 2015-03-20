@@ -79,7 +79,7 @@ $(function ()
 {
     //$('.js-category').on('click', showCategory);
     //$('.js-list-category').on('click', showListCategory);
-    $('li.product').on('mouseenter', showMenu);
+    $('div.navigation-product').on('mouseenter', showMenu);
     $('div.js-nav-bar').on('mouseleave', hideMenu);
     $('div.img_carousel img').on('click', replaceSource);
     $('div.avis').on('click', showAvis);

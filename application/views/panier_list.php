@@ -14,7 +14,6 @@
             <p><?= $article['price'] ?> € </p>
 
             <form action="<?= site_url('panier/update_quantity') ?>" method="post" class="quantity">
-                <label for="quantity">Quantité : </label>
                 <input type="number" name="quantity" id="quantity" value="<?= $article['quantity'] ?>" placeholder="1">
                 <input type="hidden" name="article_id" value="<?= $article['id'] ?>">
                 <input type="submit" class="hidden">
